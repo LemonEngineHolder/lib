@@ -14,6 +14,10 @@ end
 function module:importVariable(var, val)
 	getfenv()[var] = val
 end
+function module:GetVariable(vv, val)
+	vv = vv or getfenv()
+	return vv[val]
+end
 function module:createVariables(tbl, delay)
 	for _, v in tbl do
 		getfenv()[v[1]] = v[2]
