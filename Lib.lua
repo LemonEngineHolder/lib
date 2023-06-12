@@ -85,25 +85,21 @@ end
 function module:createLoops(tbl, async)
 	for _, v in tbl do
 		if async then
-			functionForAsync(
-				function()
-					while tbl[1] do
-						tbl[2]()
-					end
+			functionForAsync(function()
+				while tbl[1] do
+					tbl[2]()
 				end
-			)
+			end)
 		end
 	end
 end
 function module:createLoop(vv, vvv, async)
 	if async then
-		return functionForAsync(
-			function()
-				while vv do
-					vvv()
-				end
+		return functionForAsync(function()
+			while vv do
+				vvv()
 			end
-		)
+		end)
 	end
 end
 return module
